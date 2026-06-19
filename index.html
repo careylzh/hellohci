@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tangible User Interfaces: An HCI Ancestry</title>
+    <meta
+      name="description"
+      content="A visual timeline tracing the HCI ideas that shaped Tangible Bits and tangible user interfaces."
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div>
+        <p class="eyebrow">HCI history</p>
+        <h1>Tangible User Interfaces: An HCI Ancestry</h1>
+        <p class="lede">
+          A visual lineage from desktop HCI toward rooms, objects, bodies,
+          ambient media, and embodied practice.
+        </p>
+      </div>
+      <a class="source-link" href="sources.html">Sources</a>
+    </header>
+
+    <main>
+      <section class="summary-band" aria-label="Core synthesis">
+        <article>
+          <span>Anchor</span>
+          <strong>Tangible Bits, 1997</strong>
+          <p>Bits become coupled to atoms through objects, surfaces, and ambient materials.</p>
+        </article>
+        <article>
+          <span>Main inheritance</span>
+          <strong>Environment + materiality</strong>
+          <p>Ubicomp, augmented desks, graspable objects, and reactive rooms converge.</p>
+        </article>
+        <article>
+          <span>Later vocabulary</span>
+          <strong>Embodiment + reflection</strong>
+          <p>Dourish and slow technology explain why situated material interaction matters.</p>
+        </article>
+      </section>
+
+      <section class="timeline-panel" aria-labelledby="timeline-title">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">Interactive timeline</p>
+            <h2 id="timeline-title">Genealogy of tangible interaction</h2>
+          </div>
+          <div class="controls" aria-label="Timeline controls">
+            <button class="filter active" type="button" data-filter="all">All</button>
+            <button class="filter" type="button" data-filter="ancestor">Ancestors</button>
+            <button class="filter" type="button" data-filter="anchor">Anchor</button>
+            <button class="filter" type="button" data-filter="descendant">Afterlives</button>
+          </div>
+        </div>
+
+        <div class="visual-grid">
+          <div class="chart-wrap" aria-label="Timeline chart">
+            <svg id="timeline" role="img" aria-labelledby="chart-title chart-desc"></svg>
+          </div>
+          <aside class="detail-card" aria-live="polite">
+            <p class="eyebrow" id="detail-role">Select a node</p>
+            <h3 id="detail-title">Tangible Bits</h3>
+            <p id="detail-meta">Ishii & Ullmer, 1997</p>
+            <p id="detail-copy">
+              Tangible Bits sits at the convergence of environmental computing,
+              material interaction, peripheral awareness, and situated embodied practice.
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="lineage" aria-labelledby="lineage-title">
+        <p class="eyebrow">Core genealogy</p>
+        <h2 id="lineage-title">Four currents feeding Tangible Bits</h2>
+        <div class="lineage-grid">
+          <article>
+            <h3>Environment</h3>
+            <p>Ubiquitous computing, context awareness, reactive environments, and media spaces relocate interaction from the desktop into lived places.</p>
+          </article>
+          <article>
+            <h3>Material Coupling</h3>
+            <p>DigitalDesk and graspable UIs make paper, tables, and physical handles active carriers of computational meaning.</p>
+          </article>
+          <article>
+            <h3>Attention</h3>
+            <p>Calm technology turns the periphery into a design surface for ambient awareness instead of constant interruption.</p>
+          </article>
+          <article>
+            <h3>Embodiment</h3>
+            <p>Wearables, augmented reality, embodied interaction, and slow technology extend TUI toward perception, bodily skill, and reflective duration.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
