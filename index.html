@@ -49,10 +49,10 @@
             <h2 id="timeline-title">Genealogy of tangible interaction</h2>
           </div>
           <div class="controls" aria-label="Timeline controls">
-            <button class="filter active" type="button" data-filter="all">All</button>
-            <button class="filter" type="button" data-filter="ancestor">Ancestors</button>
-            <button class="filter" type="button" data-filter="anchor">Anchor</button>
-            <button class="filter" type="button" data-filter="descendant">Afterlives</button>
+            <button class="filter active" type="button" data-filter="all" aria-pressed="true">All</button>
+            <button class="filter" type="button" data-filter="ancestor" aria-pressed="false">Ancestors</button>
+            <button class="filter" type="button" data-filter="anchor" aria-pressed="false">Anchor</button>
+            <button class="filter" type="button" data-filter="descendant" aria-pressed="false">Afterlives</button>
           </div>
         </div>
 
@@ -68,6 +68,10 @@
               Tangible Bits sits at the convergence of environmental computing,
               material interaction, peripheral awareness, and situated embodied practice.
             </p>
+            <figure class="detail-visual">
+              <svg id="detail-image" viewBox="0 0 320 180" role="img" aria-labelledby="detail-image-title detail-image-desc"></svg>
+              <figcaption id="detail-caption"></figcaption>
+            </figure>
           </aside>
         </div>
       </section>
