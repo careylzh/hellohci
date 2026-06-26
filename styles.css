@@ -15,6 +15,35 @@
   --red: #bf616a;
   --purple: #b48ead;
   --shadow: rgba(15, 17, 22, 0.28);
+  --detail-bg: #3b4252;
+  --code-bg: #242933;
+  --edge: #8792a6;
+  --node-bg: #3b4252;
+  --topbar-bg: rgba(46, 52, 64, 0.94);
+}
+
+body[data-theme="original"] {
+  color-scheme: light;
+  --bg: #f5f2ea;
+  --panel: #fffdf7;
+  --panel-strong: #ffffff;
+  --ink: #1f2528;
+  --muted: #657073;
+  --quiet: #8a9294;
+  --line: #d9d0c1;
+  --frost: #00756f;
+  --frost-deep: #00564f;
+  --green: #00564f;
+  --yellow: #b98717;
+  --orange: #b65439;
+  --red: #b65439;
+  --purple: #6c5aa8;
+  --shadow: rgba(31, 37, 40, 0.14);
+  --detail-bg: #fffdf7;
+  --code-bg: #f5f2ea;
+  --edge: #9d9283;
+  --node-bg: #ffffff;
+  --topbar-bg: rgba(255, 253, 247, 0.94);
 }
 
 * {
@@ -70,7 +99,7 @@ a {
   height: 100vh;
   overflow-y: auto;
   border-right: 1px solid var(--line);
-  background: #2e3440;
+  background: var(--bg);
 }
 
 .site-title {
@@ -118,7 +147,7 @@ a {
   gap: 1rem;
   border-bottom: 1px solid var(--line);
   padding: 0 1.25rem;
-  background: rgba(46, 52, 64, 0.94);
+  background: var(--topbar-bg);
   backdrop-filter: blur(10px);
 }
 
@@ -140,6 +169,21 @@ a {
   align-items: center;
   gap: 0.75rem;
   margin-left: auto;
+}
+
+.theme-toggle {
+  min-height: 2.25rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 0.4rem 0.65rem;
+  color: var(--bg);
+  background: var(--frost);
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.theme-toggle:hover {
+  background: var(--yellow);
 }
 
 .toggle-control {
@@ -347,7 +391,7 @@ h3 {
 }
 
 .detail-image-bg {
-  fill: #3b4252;
+  fill: var(--detail-bg);
   stroke: none;
 }
 
@@ -396,7 +440,7 @@ h3 {
 }
 
 .node rect {
-  fill: #3b4252;
+  fill: var(--node-bg);
   stroke-width: 2;
   filter: drop-shadow(0 7px 12px rgba(15, 17, 22, 0.25));
 }
@@ -424,7 +468,7 @@ h3 {
 
 .edge {
   fill: none;
-  stroke: #8792a6;
+  stroke: var(--edge);
   stroke-width: 2;
   marker-end: url(#arrow);
 }
@@ -504,7 +548,7 @@ h3 {
 .markdown-body code,
 .raw-markdown {
   color: var(--green);
-  background: #242933;
+  background: var(--code-bg);
 }
 
 .markdown-body code {
@@ -517,7 +561,7 @@ h3 {
   border: 1px solid var(--line);
   border-radius: 6px;
   padding: 1rem;
-  background: #242933;
+  background: var(--code-bg);
 }
 
 .markdown-body pre code {

@@ -200,9 +200,11 @@ const detailMeta = document.querySelector("#detail-meta");
 const detailCopy = document.querySelector("#detail-copy");
 const detailImage = document.querySelector("#detail-image");
 const detailCaption = document.querySelector("#detail-caption");
+const themeToggle = document.querySelector("#theme-toggle");
 
 let selected = "tangible";
 let activeFilter = "all";
+let currentTheme = "nord";
 
 const width = 1080;
 const height = 680;
@@ -349,6 +351,45 @@ const conceptVisuals = {
   }
 };
 
+const originalColorMap = new Map([
+  ["#d8dee9", "#657073"],
+  ["#8fbcbb", "#00756f"],
+  ["#81a1c1", "#2e6f9e"],
+  ["#d08770", "#b65439"],
+  ["#b48ead", "#6c5aa8"],
+  ["#ebcb8b", "#b98717"],
+  ["#88c0d0", "#00564f"],
+  ["#3b4252", "#f8faf9"],
+  ["#4c566a", "#d9d0c1"],
+  ["#eceff4", "#ffffff"],
+  ["#8792a6", "#9d9283"]
+]);
+
+function themeColor(value) {
+  if (currentTheme !== "original" || typeof value !== "string") return value;
+  return originalColorMap.get(value.toLowerCase()) || value;
+}
+
+function applyTheme(theme) {
+  currentTheme = theme === "original" ? "original" : "nord";
+  document.body.dataset.theme = currentTheme;
+
+  if (themeToggle) {
+    const nextTheme = currentTheme === "nord" ? "original" : "Nord";
+    themeToggle.textContent = nextTheme === "Nord" ? "Nord" : "Original";
+    themeToggle.setAttribute("aria-label", `Switch to ${nextTheme} theme`);
+  }
+
+  try {
+    localStorage.setItem("hci-history-theme", currentTheme);
+  } catch {
+    // Theme persistence is optional.
+  }
+
+  if (svg) render();
+  if (detailImage) updateDetailImage(nodeById(selected));
+}
+
 function xFor(year) {
   return margin.left + ((year - minYear) / (maxYear - minYear)) * (width - margin.left - margin.right);
 }
@@ -382,7 +423,10 @@ function wrapText(text, maxChars) {
 
 function makeSvg(tag, attributes = {}) {
   const element = document.createElementNS("http://www.w3.org/2000/svg", tag);
-  Object.entries(attributes).forEach(([key, value]) => element.setAttribute(key, value));
+  Object.entries(attributes).forEach(([key, value]) => {
+    const themedValue = key === "fill" || key === "stroke" ? themeColor(value) : value;
+    element.setAttribute(key, themedValue);
+  });
   return element;
 }
 
@@ -518,7 +562,7 @@ function render() {
       width: nodeWidth,
       height: nodeHeight,
       rx: nodeRadius,
-      stroke: concept.color
+      stroke: themeColor(concept.color)
     }));
 
     const lines = wrapText(concept.title, 18);
@@ -723,6 +767,26 @@ async function loadDocumentPage() {
     raw.hidden = !showRaw;
   });
 }
+
+function initTheme() {
+  let storedTheme = "nord";
+
+  try {
+    storedTheme = localStorage.getItem("hci-history-theme") || "nord";
+  } catch {
+    storedTheme = "nord";
+  }
+
+  applyTheme(storedTheme);
+
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      applyTheme(currentTheme === "nord" ? "original" : "nord");
+    });
+  }
+}
+
+initTheme();
 
 if (svg) {
   buttons.forEach((button) => {
