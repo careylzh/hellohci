@@ -5,24 +5,9 @@ const documents = [
     title: "HCI Tangible Bits Paradigms Notes"
   },
   {
-    id: "SYNTHESIS_SEED_PROMPT",
-    file: "SYNTHESIS_SEED_PROMPT.md",
-    title: "Synthesis Seed Prompt"
-  },
-  {
-    id: "TODO",
-    file: "TODO.md",
-    title: "Todo"
-  },
-  {
     id: "TRENDS_IN_HCI_2021-2026",
     file: "TRENDS_IN_HCI_2021-2026.md",
     title: "Trends In HCI 2021 2026"
-  },
-  {
-    id: "README",
-    file: "README.md",
-    title: "Readme"
   }
 ];
 
